@@ -1,0 +1,12 @@
+.loginWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#forgotPassword {    
+    text-align: center;
+    margin-top: 1rem;
+    color: crimson;
+    cursor: pointer;
+}
