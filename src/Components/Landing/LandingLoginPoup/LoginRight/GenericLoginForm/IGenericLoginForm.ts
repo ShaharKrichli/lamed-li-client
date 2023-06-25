@@ -9,6 +9,6 @@ export interface IGenericLoginForm {
     fields: IField[]
     errorMsg: string
     buttonText: string
-    buttonFunc: (firstField: string, secondField: string) => Promise<void>
+    buttonFunc: (firstField: string, secondField: string) => Promise<any>
     nextComp?: LOGIN_TOGGLER_COMPS_LITERALS
 }
