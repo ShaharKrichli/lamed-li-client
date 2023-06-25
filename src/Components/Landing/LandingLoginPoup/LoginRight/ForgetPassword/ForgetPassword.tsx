@@ -9,11 +9,13 @@ import { FORGET_PASSWORD_FIELDS, FORGOT_PASSWORD_INFO } from './ForgetPassword.d
 
 // comps
 import GenericLoginForm from '../GenericLoginForm/GenericLoginForm';
+import { LOCAL_STORAGE_NAMES } from '../../../../../consts/login';
 
 const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     const handleForgetPassword = async (email: string) => {
         return await loginService.forgotPassword(email).then((data) => {
+            data.accessToken && localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, JSON.stringify(data.accessToken));
             return data
         })
     }

@@ -2,6 +2,7 @@
 import type { AxiosInstance } from "axios";
 import { createAxiosInstance } from "../../config/axiosInstance";
 import { encodeBase64 } from "../../utils/global";
+import { IToken } from "../../types/interfaces/IToken";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
     serviceBaseUrl: 'localhost:3000', // TODO: Need to be env variable
@@ -19,9 +20,10 @@ export default {
             throw err
         }
     },
-    forgotPassword: async (email: string) => {
+    forgotPassword: async (email: string): Promise<IToken> => {
         try {
-            return await axiosInstanceNoToken.post('/forgot-password', { bodyData: encodeBase64({ email }) })
+            const { data } = await axiosInstanceNoToken.post<IToken>('/forgot-password', { bodyData: encodeBase64({ email }) })
+            return data
         }
         catch (err: any) {
             throw err
