@@ -1,6 +1,7 @@
 // axios
 import type { AxiosInstance } from "axios";
 import { createAxiosInstance } from "../../config/axiosInstance";
+import { encodeBase64 } from "../../utils/global";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
     serviceBaseUrl: 'localhost:3000', // TODO: Need to be env variable
@@ -12,8 +13,7 @@ const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
 export default {
     login: async (password: string, email: string) => {
         try {
-            const { data } = await axiosInstanceNoToken.post("/login")
-            return data
+            return await axiosInstanceNoToken.post('/login', { bodyData: encodeBase64({ password, email }) })
         }
         catch (err: any) {
             throw err
@@ -21,8 +21,7 @@ export default {
     },
     forgotPassword: async (email: string) => {
         try {
-            const { data } = await axiosInstanceNoToken.post("/forgot-password")
-            return data
+            return await axiosInstanceNoToken.post('/forgot-password', { bodyData: encodeBase64({ email }) })
         }
         catch (err: any) {
             throw err
@@ -31,8 +30,8 @@ export default {
     },
     restorationCode: async (code: string) => {
         try {
-            const { data } = await axiosInstanceNoToken.post("/restoration-code")
-            return data
+            return await axiosInstanceNoToken.post('/restoration-code', { bodyData: encodeBase64({ code }) })
+
         }
         catch (err: any) {
             throw err
@@ -40,8 +39,7 @@ export default {
     },
     resetPassword: async (password: string) => {
         try {
-            const { data } = await axiosInstanceNoToken.post("/reset-password")
-            return data
+            return await axiosInstanceNoToken.post('/reset-password', { bodyData: encodeBase64({ password }) })
         }
         catch (err: any) {
             throw err
