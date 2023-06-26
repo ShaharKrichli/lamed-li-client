@@ -1,13 +1,10 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 // css
-import * as S from './LandingProffesionsNavigation.style'
+import * as S from './LandingProffesionsNavigation.style';
 
 // data
-import { ProffesionsData } from './LandingProffesionsNavigation.data'
-import { Box, Button, LinearProgress } from '@mui/material';
-
-// mui
+import { ProffesionsData } from './LandingProffesionsNavigation.data';
 
 const ProffesionButton: FC = () => {
 
