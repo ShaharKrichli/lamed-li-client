@@ -5,5 +5,4 @@ export interface IAxiosConfig {
   prefix: string;
   headers?: AxiosRequestHeaders;
   isTokenRequired?: boolean;
-  isLogin?: boolean
 }
