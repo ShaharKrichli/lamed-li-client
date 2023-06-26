@@ -9,6 +9,7 @@ import loginService from '../../../../../services/login/login'
 
 // comps
 import GenericLoginForm from '../GenericLoginForm/GenericLoginForm';
+import { LOCAL_STORAGE_NAMES } from '../../../../../consts/login';
 
 const ResetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
@@ -16,6 +17,7 @@ const ResetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
         if (firstPassword !== secondPassword) return Promise.reject({ message: RESET_PASSWORD_INFO.ERROR_MSG })
         
         return await loginService.resetPassword(firstPassword).then((data) => {
+            data.accessToken && localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, JSON.stringify(data.accessToken));
             return data
         })
     }

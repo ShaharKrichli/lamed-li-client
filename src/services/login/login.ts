@@ -39,9 +39,10 @@ export default {
             throw err
         }
     },
-    resetPassword: async (password: string) => {
+    resetPassword: async (password: string): Promise<IToken> => {
         try {
-            return await axiosInstanceNoToken.post('/reset-password', { bodyData: encodeBase64({ password }) })
+            const { data } = await axiosInstanceNoToken.post<IToken>('/reset-password', { bodyData: encodeBase64({ password }) })
+            return data
         }
         catch (err: any) {
             throw err
