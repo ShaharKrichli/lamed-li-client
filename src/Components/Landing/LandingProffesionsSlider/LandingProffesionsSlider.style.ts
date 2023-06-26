@@ -8,10 +8,6 @@ export const SliderSingleImg = styled('img')({
     webkiTransition: 'opacity .3s ease-in-out',
     width: ' 100%',
     cursor: 'pointer',
-    ":hover": {
-        opacity: '0.8',
-    }
-
 });
 
 export const SliderSingleTitle = styled('div')({
