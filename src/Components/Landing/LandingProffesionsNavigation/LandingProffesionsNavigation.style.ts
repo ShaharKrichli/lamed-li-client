@@ -13,7 +13,7 @@ export const proffesionsArea = styled('div')({
 export const proffesionBox = styled('div')({
     margin: '0 50px 0',
     width: '150px',
-    height: '40px',
+    height: 'fit-content',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,8 +38,27 @@ export const proffesionText = styled('div')({
 });
 
 export const proffesionLine = styled('div')({
-    height: '20px',
-    width: '20px',
-    backgroundColor: 'red',
-    margin: '5px 0 5px'
+    position: 'relative',
+    width: '50px',
+    backgroundColor: '#B0B0B0',
+    height: '2px',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+    },
+    '&::before': {
+      content: "'    '",
+      position: 'absolute',
+      display: 'block',
+      width: '50px',
+      height: '2px',
+      bottom: 0,
+      left: 0,
+      backgroundColor: '#000',
+      transform: 'scaleX(0)',
+      transition: 'transform 0.3s ease',
+    },
+    '&:hover::before': {
+      transform: 'scaleX(1)',
+    },
 });

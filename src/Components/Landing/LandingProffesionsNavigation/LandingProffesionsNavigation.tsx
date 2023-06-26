@@ -17,8 +17,8 @@ const ProffesionButton: FC = () => {
                 {ProffesionsData.map((element, index) => (
                     <S.proffesionBox key={index}>
                         <S.proffesionImg src={element.iconSrc} />
-                        <S.proffesionText>{element.label}</S.proffesionText>
                         <S.proffesionLine></S.proffesionLine>
+                        <S.proffesionText>{element.label}</S.proffesionText>
                     </S.proffesionBox>
                 ))}
             </S.proffesionsArea>
