@@ -7,7 +7,6 @@ import * as S from './LandingProffesionsNavigation.style';
 import { ProffesionsData } from './LandingProffesionsNavigation.data';
 
 const ProffesionButton: FC = () => {
-
     return (
         <>
             <S.proffesionsArea>
