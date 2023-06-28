@@ -20,7 +20,7 @@ export const proffesionBox = styled('div')({
   flexDirection: 'column',
   cursor: 'pointer',
   '&:hover': {
-    '& div::before': {
+    '& span::before': {
       transform: 'scaleX(1)',
     },
   },
@@ -42,7 +42,7 @@ export const proffesionText = styled('p')({
   fontSize: '20px',
 });
 
-export const proffesionLine = styled('div')({
+export const proffesionLine = styled('span')({
   position: 'relative',
   width: '50px',
   backgroundColor: '#B0B0B0',
