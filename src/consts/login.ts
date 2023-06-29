@@ -19,4 +19,5 @@ export const PASSWORD_FIELD = {
 
 export const LOCAL_STORAGE_NAMES = {
     AUTH: "AUTHENTICATION_TOKEN",
-  };
+    REFRESH_TOKEN: "REFRESH_TOKEN"
+};

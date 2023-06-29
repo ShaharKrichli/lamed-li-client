@@ -8,8 +8,7 @@ import { HOME_ROUTE } from "./consts/routes";
 const App: FC = () => {
 
   return (
-    <div className="App">
-
+    <>
         <Switch>
           {RouteMaster.map((routeElement, index) => (
             <Route
@@ -20,7 +19,7 @@ const App: FC = () => {
           ))}
           <Redirect from="*" to={HOME_ROUTE} />
         </Switch>
-    </div>
+    </>
   );
 }
 
