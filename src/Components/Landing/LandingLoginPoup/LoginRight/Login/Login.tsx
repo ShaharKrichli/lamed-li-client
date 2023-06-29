@@ -16,6 +16,7 @@ import LoginField from '../LoginField/LoginField';
 // consts
 import { LOGIN_INFO, LOGIN_POPUP_FIELDS } from './Login.data';
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
+import { LOCAL_STORAGE_NAMES } from '../../../../../consts/login';
 
 const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
@@ -34,8 +35,10 @@ const Login: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     const handleLogin = () => {
         if (field.every(element => { return element.isValid })) {
-            loginService.login(field[0].value, field[1].value).then(data => {
-                // TODO: handle login success
+            loginService.login(field[0].value, field[1].value).then(tokens => {
+                localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, tokens.accessToken);
+                localStorage.setItem(LOCAL_STORAGE_NAMES.REFRESH_TOKEN, tokens.refreshToken);
+                // TODO: redirect to home page
             }).catch(err => { setIsLoginFailed(true) })
         }
         else {

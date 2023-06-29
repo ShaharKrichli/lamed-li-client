@@ -1,8 +1,12 @@
 // axios
 import type { AxiosInstance } from "axios";
 import { createAxiosInstance } from "../../config/axiosInstance";
+
+// encoding
 import { encodeBase64 } from "../../utils/global";
-import { IToken } from "../../types/interfaces/IToken";
+
+// interfaces
+import { IAccessToken, ITokens } from "../../types/interfaces/IToken";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
     serviceBaseUrl: 'localhost:3000', // TODO: Need to be env variable
@@ -10,19 +14,20 @@ const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
     isTokenRequired: false
 });
 
-// TODO: Need to add return types and logs
+// TODO: Need to add logs
 export default {
-    login: async (password: string, email: string) => {
+    login: async (password: string, email: string): Promise<ITokens> => {
         try {
-            return await axiosInstanceNoToken.post('/login', { bodyData: encodeBase64({ password, email }) })
+            const { data } = await axiosInstanceNoToken.post<ITokens>('/login', { bodyData: encodeBase64({ password, email }) })
+            return data
         }
         catch (err: any) {
             throw err
         }
     },
-    forgotPassword: async (email: string): Promise<IToken> => {
+    forgotPassword: async (email: string): Promise<IAccessToken> => {
         try {
-            const { data } = await axiosInstanceNoToken.post<IToken>('/forgot-password', { bodyData: encodeBase64({ email }) })
+            const { data } = await axiosInstanceNoToken.post<IAccessToken>('/forgot-password', { bodyData: encodeBase64({ email }) })
             return data
         }
         catch (err: any) {
@@ -30,18 +35,18 @@ export default {
         }
 
     },
-    restorationCode: async (code: string) => {
+    restorationCode: async (code: string): Promise<IAccessToken> => {
         try {
-            return await axiosInstanceNoToken.post('/restoration-code', { bodyData: encodeBase64({ code }) })
-
+            const { data } = await axiosInstanceNoToken.post<IAccessToken>('/restoration-code', { bodyData: encodeBase64({ code }) })
+            return data
         }
         catch (err: any) {
             throw err
         }
     },
-    resetPassword: async (password: string): Promise<IToken> => {
+    resetPassword: async (password: string): Promise<boolean> => {
         try {
-            const { data } = await axiosInstanceNoToken.post<IToken>('/reset-password', { bodyData: encodeBase64({ password }) })
+            const { data } = await axiosInstanceNoToken.post<boolean>('/reset-password', { bodyData: encodeBase64({ password }) })
             return data
         }
         catch (err: any) {

@@ -6,17 +6,16 @@ import loginService from '../../../../../services/login/login'
 // consts
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
 import { FORGET_PASSWORD_FIELDS, FORGOT_PASSWORD_INFO } from './ForgetPassword.data';
+import { LOCAL_STORAGE_NAMES } from '../../../../../consts/login';
 
 // comps
 import GenericLoginForm from '../GenericLoginForm/GenericLoginForm';
-import { LOCAL_STORAGE_NAMES } from '../../../../../consts/login';
 
 const ForgetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     const handleForgetPassword = async (email: string) => {
         return await loginService.forgotPassword(email).then((data) => {
-            data.accessToken && localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, JSON.stringify(data.accessToken));
-            return data
+            localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, data.accessToken);
         })
     }
 

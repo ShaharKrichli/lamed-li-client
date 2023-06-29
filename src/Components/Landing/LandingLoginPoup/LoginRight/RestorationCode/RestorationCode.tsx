@@ -3,6 +3,7 @@ import { FC } from 'react';
 // consts
 import { RESTORATION_CODE_FIELD, RESTORATION_CODE_INFO } from './RestorationCode.data';
 import { ILoginRightTogglers, LOGIN_TOGGLER_COMPS } from '../LoginRight.data';
+import { LOCAL_STORAGE_NAMES } from '../../../../../consts/login';
 
 // services
 import loginService from '../../../../../services/login/login'
@@ -14,7 +15,7 @@ const RestorationCode: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
 
     const handleRestorationCode = async (code: string) => {
         return await loginService.restorationCode(code).then((data) => {
-            return data
+            localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, data.accessToken);
         })
     }
 
