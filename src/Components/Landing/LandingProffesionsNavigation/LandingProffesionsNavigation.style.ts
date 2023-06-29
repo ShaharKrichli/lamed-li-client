@@ -3,11 +3,8 @@ import { styled } from "@mui/material/styles";
 export const proffesionsArea = styled('div')({
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'center',
   alignItems: 'center',
   height: '345px',
-  width: '70%',
-  margin: 'auto'
 });
 
 export const proffesionBox = styled('div')({
