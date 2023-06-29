@@ -28,6 +28,7 @@ const LoginField: FC<IFieldManager> = ({ field, updateFieldInfo, index, checkEmp
             return
         }
         const { isTextValid, validFuncIndex } = checkValidaitons(value, field.validationFuncs)
+        console.log(value, isTextValid, validFuncIndex)
         setisFieldValid(isTextValid)
         updateFieldInfo(isTextValid, value, index)
         !isTextValid && setErrorMsg(field.validationFuncs[validFuncIndex - 1].errorMsg)
