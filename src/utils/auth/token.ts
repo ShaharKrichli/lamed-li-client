@@ -1,6 +1,5 @@
 import type { AxiosRequestConfig, AxiosRequestHeaders, } from "axios";
 import { getAuthTokenFromStorage } from "./auth";
-import { log } from "console";
 
 export const getExpirationDate = (jwtToken: string) => {
     const jwt = JSON.parse(atob(jwtToken.split(".")[1]));
