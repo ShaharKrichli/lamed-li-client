@@ -17,6 +17,8 @@ const RestorationCode: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
         return await loginService.restorationCode(code).then((data) => {
             localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, data.accessToken);
         })
+
+        // TOOD: add error handling, incase session expired
     }
 
     return (

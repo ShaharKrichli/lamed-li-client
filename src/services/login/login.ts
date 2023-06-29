@@ -53,4 +53,6 @@ export default {
             throw err
         }
     }
+
+    // TODO: Need to add logout and refresh token methods
 };
