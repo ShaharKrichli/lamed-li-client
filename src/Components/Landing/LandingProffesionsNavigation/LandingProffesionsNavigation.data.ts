@@ -15,14 +15,6 @@ export const ProffesionsData = [
         iconSrc: Calculator
     },
     {
-        label: 'תכנות',
-        iconSrc: Calculator
-    },
-    {
-        label: 'תכנות',
-        iconSrc: Calculator
-    },
-    {
         label: 'תכנות & עיצוב',
         iconSrc: Calculator
     },
