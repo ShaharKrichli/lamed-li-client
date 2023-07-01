@@ -1,8 +1,7 @@
-import { LOCAL_STORAGE_NAMES } from "../../consts/login";
 
-export const getAuthTokenFromStorage = () => {
+export const getTokenFromStorage = (token: string) => {
     try {
-        const storageAuthToken = localStorage.getItem(LOCAL_STORAGE_NAMES.AUTH);
+        const storageAuthToken = localStorage.getItem(token);
         return storageAuthToken && !isExpired(getExpirationDate(storageAuthToken)) ? JSON.parse(storageAuthToken) : undefined
 
     } catch (error: any) {
@@ -10,7 +9,6 @@ export const getAuthTokenFromStorage = () => {
         return false
     }
 };
-
 
 const getExpirationDate = (jwtToken: string) => {
     const jwt = JSON.parse(atob(jwtToken.split(".")[1]));

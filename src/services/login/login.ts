@@ -9,7 +9,7 @@ import { encodeBase64 } from "../../utils/global";
 import { IAccessToken, ITokens } from "../../types/interfaces/IToken";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'localhost:3000', // TODO: Need to be env variable
+    serviceBaseUrl: 'https://localhost:3000', // TODO: Need to be env variable
     prefix: "/login",
     isTokenRequired: false
 });
@@ -54,5 +54,5 @@ export default {
         }
     }
 
-    // TODO: Need to add logout and refresh token methods
+    // TODO: Need to add logout method
 };
