@@ -9,13 +9,13 @@ import { encodeBase64 } from "../../utils/global";
 import { IAccessToken, ITokens } from "../../types/interfaces/IToken";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'https://localhost:3000', // TODO: Need to be env variable
+    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
     prefix: "/login",
     isTokenRequired: false
 });
 
 const axiosInstance: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'https://localhost:3000', // TODO: Need to be env variable
+    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
     prefix: "/login",
     isTokenRequired: false
 });
