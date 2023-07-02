@@ -2,7 +2,6 @@
 export const getTokenFromStorage = (token: string) => {
     try {
         const storageAuthToken = localStorage.getItem(token);
-        console.log(storageAuthToken)
         return storageAuthToken && !isExpired(getExpirationDate(storageAuthToken)) ? JSON.parse(storageAuthToken) : undefined
 
     } catch (error: any) {

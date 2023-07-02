@@ -1,3 +1,5 @@
+import { Buffer } from "buffer";
+
 export const encodeBase64 = (str: any) => {
     const data = JSON.stringify(str);
     const buff = Buffer.from(data);
