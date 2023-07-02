@@ -4,3 +4,11 @@ export const encodeBase64 = (str: any) => {
     const base64data = buff.toString('base64');
     return base64data;
 }
+
+export const checkUrlParamsOnlyDigits = (param: string) => {
+    return /^\d+$/.test(param)
+}
+
+export const checkUrlParamsOnlyLetters = (param: string) => {
+    return /^[A-Za-z0-9]*$/.test(param);
+}

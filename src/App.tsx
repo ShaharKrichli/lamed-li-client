@@ -4,6 +4,7 @@ import { FC } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import RouteMaster from "./routes/routes";
 import { HOME_ROUTE } from "./consts/routes";
+import PrivateRoute from "./Global/Routes/PrivateRoute";
 
 const App: FC = () => {
 
@@ -14,7 +15,13 @@ const App: FC = () => {
             <Route
               key={index}
               path={routeElement.path}
-              render={() => <routeElement.component />}
+              render={() =>
+                <PrivateRoute key={index}
+                  isCheckUrlLetters={routeElement.isCheckUrlLetters}
+                  isPrivate={routeElement.isPrivate}>
+                  <routeElement.component />
+                </PrivateRoute>
+              }
             />
           ))}
           <Redirect from="*" to={HOME_ROUTE} />
