@@ -9,7 +9,13 @@ import { encodeBase64 } from "../../utils/global";
 import { IAccessToken, ITokens } from "../../types/interfaces/IToken";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'localhost:3000', // TODO: Need to be env variable
+    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
+    prefix: "/login",
+    isTokenRequired: false
+});
+
+const axiosInstance: AxiosInstance = createAxiosInstance({
+    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
     prefix: "/login",
     isTokenRequired: false
 });
@@ -37,7 +43,7 @@ export default {
     },
     restorationCode: async (code: string): Promise<IAccessToken> => {
         try {
-            const { data } = await axiosInstanceNoToken.post<IAccessToken>('/restoration-code', { bodyData: encodeBase64({ code }) })
+            const { data } = await axiosInstance.post<IAccessToken>('/restoration-code', { bodyData: encodeBase64({ code }) })
             return data
         }
         catch (err: any) {
@@ -46,7 +52,7 @@ export default {
     },
     resetPassword: async (password: string): Promise<boolean> => {
         try {
-            const { data } = await axiosInstanceNoToken.post<boolean>('/reset-password', { bodyData: encodeBase64({ password }) })
+            const { data } = await axiosInstance.post<boolean>('/reset-password', { bodyData: encodeBase64({ password }) })
             return data
         }
         catch (err: any) {
@@ -54,5 +60,5 @@ export default {
         }
     }
 
-    // TODO: Need to add logout and refresh token methods
+    // TODO: Need to add logout method
 };

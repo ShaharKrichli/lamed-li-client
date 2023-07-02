@@ -13,7 +13,7 @@ export const FORGET_PASSWORD_FIELDS: IField[] = [
 ]
 
 export const FORGOT_PASSWORD_INFO = {
-    ERROR_MSG: 'שם משתמש או סיסמא שגויים',
+    ERROR_MSG: 'כתובת המייל אינה קיימת במערכת',
     BACK_BUTTON_TITLE: 'חזור',
     TITLE: 'הזן כתובת מייל לשחזור',
     BUTTON_TEXT: 'שחזור סיסמה',
