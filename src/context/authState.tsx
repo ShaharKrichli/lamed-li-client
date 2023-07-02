@@ -16,4 +16,5 @@ export const AuthStateProvider: FC<{ children: React.ReactNode; }> = ({ children
             {children}
         </AuthStateContext.Provider>
     );
+    
 };

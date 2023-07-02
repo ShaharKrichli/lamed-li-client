@@ -99,9 +99,9 @@ const LandingCenter: FC = () => {
       </S.LandingContainer>
 
       <S.ButtonsContainer>
-        <S.LandingBtn onClick={() => { history.push(TEACHER_SEARCH_ROUTE) }}>מצא לי מורה</S.LandingBtn>
-        <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה</S.LandingBtn>
-      </S.ButtonsContainer>
+        <S.LandingBtn onClick={() => { setIsLoginPopupOpen(true) }}>כניסה לחשבון שלי</S.LandingBtn>
+      <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה פרטי</S.LandingBtn>
+    </S.ButtonsContainer >
       <LandingLoginPopup isLoginPopupOpen={isLoginPopupOpen} setIsLoginPopupOpen={setIsLoginPopupOpen} />
     </>
   );
