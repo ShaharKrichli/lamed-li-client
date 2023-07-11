@@ -1,12 +1,47 @@
 import { FC } from "react";
 
-import './Register.style.css'
+import * as S from './Register.style'
+import { IGenericFieldValidation } from "../../Components/register/GenericField/IGeneridFieldValidation.interface";
+import { IGenericField } from "../../Components/register/GenericField/IGenericField.interface";
+import { GenericForm } from "../../Components/register/GenericForm/GenericForm";
+import { REGISTER_ROUTE } from "../../consts/routes";
+import register from "../../services/register/register";
 
-const Register: FC = () => {
+const validationNames = {
+  required: { validationName: 'required', errorText: 'שדה זה הינו שדה חובה' } as IGenericFieldValidation,
+  onlyNumbers: { validationName: 'onlyNumbers', errorText: 'שדה זה יכול להכיל מספרים בלבד' } as IGenericFieldValidation,
+}
+const newRegisterFields = [
+  {
+    fieldType: 'TextField',
+    fieldName: 'Full Name',
+    dbName: 'name',
+    isValid: false,
+    value: '',
+    validation: [validationNames.required]
+  },
+  {
+    fieldType: 'TextField',
+    fieldName: 'Email',
+    dbName: 'email',
+    isValid: false,
+    value: '',
+    validation: [validationNames.required]
+  },
+  {
+    fieldType: 'TextField',
+    fieldName: 'Password',
+    dbName: 'password',
+    isValid: false,
+    validation: [validationNames.required]
+  }
+] as IGenericField[]
+
+const Register = () => {
   return (
-    <div id="registerWrapper">
-      <div id="registerTitle">בוא נתחיל</div>
-    </div>
+    <S.ContainerGrid>
+    <GenericForm fields={newRegisterFields} title='Register' actionButtonText='REGISTER' saveFormFunction={register.createUser}></GenericForm>
+</S.ContainerGrid>
   )
 };
 
