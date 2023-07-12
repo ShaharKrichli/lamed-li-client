@@ -8,7 +8,7 @@ import { encodeBase64 } from "../../utils/global";
 // interfaces
 import { IAccessToken, ITokens } from "../../types/interfaces/IToken";
 import axios from "axios";
-import { IUser } from "./Iuser";
+import { IUser } from "./IUser";
 
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({

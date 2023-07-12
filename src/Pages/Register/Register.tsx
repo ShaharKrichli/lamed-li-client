@@ -46,8 +46,8 @@ const newRegisterFields = [
 const Register = () => {
   return (
     <S.ContainerGrid>
-    <GenericForm fields={newRegisterFields} title='Register' actionButtonText='REGISTER' saveFormFunction={register.createUser}></GenericForm>
-</S.ContainerGrid>
+      <GenericForm fields={newRegisterFields} title='Register' actionButtonText='REGISTER' saveFormFunction={register.createUser}></GenericForm>
+    </S.ContainerGrid>
   )
 };
 
