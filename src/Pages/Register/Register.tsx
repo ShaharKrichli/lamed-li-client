@@ -14,7 +14,7 @@ const validationNames = {
 const newRegisterFields = [
   {
     fieldType: 'TextField',
-    fieldName: 'Full Name',
+    fieldName: 'שם מלא',
     dbName: 'name',
     isValid: false,
     value: '',
@@ -22,7 +22,7 @@ const newRegisterFields = [
   },
   {
     fieldType: 'TextField',
-    fieldName: 'Email',
+    fieldName: 'מייל',
     dbName: 'email',
     isValid: false,
     value: '',
@@ -30,8 +30,14 @@ const newRegisterFields = [
   },
   {
     fieldType: 'TextField',
-    fieldName: 'Password',
+    fieldName: 'סיסמה',
     dbName: 'password',
+    isValid: false,
+    validation: [validationNames.required]
+  },
+  {
+    fieldType: 'TextField',
+    fieldName: 'אימות סיסמה',
     isValid: false,
     validation: [validationNames.required]
   }

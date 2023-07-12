@@ -5,7 +5,7 @@ export const PASSWORD_VALIDATORS_FUNCS: IFieldValidators[] = [
     { functionName: 'oneLowerCaseLetter', errorMsg: 'חייבת להיות אות קטנה אחת' },
     { functionName: 'oneDigit', errorMsg: 'חייבת להיות ספרה אחת' },
     { functionName: 'specialChar', errorMsg: 'חייב להיות תו מיוחד אחד' },
-    { functionName: 'minLength', errorMsg: 'חייבת להיות לפחות 8 תווים', param1: '8' },
+    { functionName: 'minLength', errorMsg: 'חייבים להיות לפחות 8 תווים', param1: '8' },
 ]
 
 export const PASSWORD_FIELD = {
