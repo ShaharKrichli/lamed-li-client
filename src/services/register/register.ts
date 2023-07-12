@@ -12,15 +12,14 @@ import { IUser } from "./Iuser";
 
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
-    prefix: "/register",
+    serviceBaseUrl: 'http://localhost:8000/api', 
+    prefix: "/login",
     isTokenRequired: false
 });
-const axiosPath =  'https://localhost:8000/api'
 export default {
     createUser: async (newUser: IUser) => {
         try {
-            const {data} = await axios.post<IUser>(axiosPath + '/register', newUser)
+            const {data} = await axiosInstanceNoToken.post<IUser>('/register', newUser)
             return data;
         } catch (err: any) {
             throw err;

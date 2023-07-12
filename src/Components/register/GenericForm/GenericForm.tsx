@@ -27,7 +27,7 @@ export function GenericForm({ fields, title, actionButtonText, saveFormFunction 
         })
 
         try {
-            debugger
+        
             await saveFormFunction(formDataObject);
         } catch (err: any) {
             alert(err.response.data.message)
