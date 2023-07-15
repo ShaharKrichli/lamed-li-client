@@ -10,6 +10,7 @@ import register from "../../services/register/register";
 const validationNames = {
   required: { validationName: 'required', errorText: 'שדה זה הינו שדה חובה' } as IGenericFieldValidation,
   onlyNumbers: { validationName: 'onlyNumbers', errorText: 'שדה זה יכול להכיל מספרים בלבד' } as IGenericFieldValidation,
+  passwordConfirm: { validationName: 'passwordConfirm', errorText: 'הסיסמאות אינן זהות' } as IGenericFieldValidation,
 }
 const newRegisterFields = [
   {
@@ -38,16 +39,18 @@ const newRegisterFields = [
   {
     fieldType: 'TextField',
     fieldName: 'אימות סיסמה',
+    dbName: 'password',
     isValid: false,
-    validation: [validationNames.required]
+    validation: [validationNames.required, validationNames.passwordConfirm]
   }
 ] as IGenericField[]
 
 const Register = () => {
   return (
-    <S.ContainerGrid>
-      <GenericForm fields={newRegisterFields} title='Register' actionButtonText='REGISTER' saveFormFunction={register.createUser}></GenericForm>
-    </S.ContainerGrid>
+    <S.registerContainer>
+      <S.regiserBackgroundImage src={'https://img.freepik.com/premium-photo/frame-school-supplies-blue-pastel-colors-light-blue-background-place-text-back-school-it-was-flat_261761-961.jpg'} alt='noImage' />
+        <GenericForm fields={newRegisterFields} title='הרשמה' actionButtonText='REGISTER' saveFormFunction={register.createUser}></GenericForm>
+    </S.registerContainer>
   )
 };
 
