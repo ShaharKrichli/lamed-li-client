@@ -49,9 +49,12 @@ const Register = () => {
   return (
     <S.registerContainer>
       <S.regiserBackgroundImage src={'https://img.freepik.com/premium-photo/frame-school-supplies-blue-pastel-colors-light-blue-background-place-text-back-school-it-was-flat_261761-961.jpg'} alt='noImage' />
-        <GenericForm fields={newRegisterFields} title='הרשמה' actionButtonText='REGISTER' saveFormFunction={register.createUser}></GenericForm>
+      <S.registerForm>
+        <GenericForm fields={newRegisterFields} title='הרשמה' actionButtonText='הירשם עכשיו' saveFormFunction={register.createUser} />
+      </S.registerForm>
     </S.registerContainer>
   )
 };
+
 
 export default Register;

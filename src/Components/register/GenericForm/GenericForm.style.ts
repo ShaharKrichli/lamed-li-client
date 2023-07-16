@@ -2,19 +2,18 @@ import { styled } from '@mui/system';
 import TextField from '@mui/material/TextField';
 
 export const FormFieldsGroup = styled('div')({
-  margin: '5vw',
-  display: 'grid',
+  display: 'flex',
   gap: '1.5em',
   height: 'fit-content',
-  width: '70vw',
+  flexDirection: 'column',
+  alignItems: 'center',
   '@media (max-width: 600px)': {
-    width: '90vw',
     margin: '3vw',
   },
 });
 
 export const FormTextField = styled(TextField)({
-  display: 'grid',
+  display: 'flex',
   width: '100%',
   margin: '2em',
   '@media (max-width: 600px)': {
