@@ -37,7 +37,7 @@ export function GenericField({ fieldType, fieldName, onChange, validation }: IGe
             helperText={error && errorMessage}
             type={fieldType}
             value={textFieldValue}
-            label={fieldName + (true ? ' *' : '')}
+            label={(true ? '* ' : '') + fieldName}
             onChange={(event) => handleTextFieldChange(event.target.value)}
         />
     );

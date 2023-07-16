@@ -1,4 +1,4 @@
-import { styled } from '@mui/system';
+import { color, styled } from '@mui/system';
 import TextField from '@mui/material/TextField';
 
 export const FormFieldsGroup = styled('div')({
