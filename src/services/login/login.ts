@@ -17,7 +17,6 @@ const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
 const axiosInstance: AxiosInstance = createAxiosInstance({
     serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
     prefix: "/login",
-    isTokenRequired: false
 });
 
 // TODO: Need to add logs
