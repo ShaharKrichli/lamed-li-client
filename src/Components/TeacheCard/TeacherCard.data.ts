@@ -13,7 +13,7 @@ export const TEACHER_CARDS: SingleTeacherCard[] = [
         priceOnline:25,
         priceFrontal: 80,
         priceFrontalStudent: 60,
-        currency: CURRENCIES.dollar
+        currency: CURRENCIES.usdollar
     },
     {
         firstName: 'Alex',
@@ -27,7 +27,7 @@ export const TEACHER_CARDS: SingleTeacherCard[] = [
         priceOnline:34,
         priceFrontal: 105,
         priceFrontalStudent: 78,
-        currency: CURRENCIES.dollar
+        currency: CURRENCIES.usdollar
     },
     {
         firstName: 'Adi',
@@ -41,7 +41,7 @@ export const TEACHER_CARDS: SingleTeacherCard[] = [
         priceOnline:0,
         priceFrontal: 0,
         priceFrontalStudent: 0,
-        currency: CURRENCIES.dollar
+        currency: CURRENCIES.usdollar
     },
     {
         firstName: 'Adi',
@@ -55,6 +55,6 @@ export const TEACHER_CARDS: SingleTeacherCard[] = [
         priceOnline:0,
         priceFrontal: 0,
         priceFrontalStudent: 0,
-        currency: CURRENCIES.dollar
+        currency: CURRENCIES.usdollar
     },
 ]

@@ -1,7 +1,7 @@
 import {Currency} from "./ICurrency"
 
 export const CURRENCIES = {
-    dollar:{
+    usdollar:{
         name: 'Dollar',
         country: 'USA',
         symbol: '$'
