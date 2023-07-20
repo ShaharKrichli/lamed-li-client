@@ -11,18 +11,26 @@ const RouteMaster = [
   {
     path: HOME_ROUTE,
     component: Landing,
+    isPrivate: false,
+    roles: []
   },
   {
     path: LOGIN_ROUTE,
     component: Login,
+    isPrivate: false,
+    roles: []
   },
   {
     path: REGISTER_ROUTE,
     component: Register,
+    isPrivate: false,
+    roles: []
   },
   {
     path: TEACHER_SEARCH_ROUTE,
     component: TeacherSearch,
+    isPrivate: false,
+    roles: []
   },
 ];
 export default RouteMaster;

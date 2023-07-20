@@ -10,13 +10,23 @@ export const getTokenFromStorage = (token: string) => {
     }
 };
 
-const getExpirationDate = (jwtToken: string) => {
+export const isTokenExpired = (token: string) => {
+    try {
+        return!isExpired(getExpirationDate(token)) 
+
+    } catch (error: any) {
+        console.error(error);
+        return false
+    }
+}
+
+export const getExpirationDate = (jwtToken: string) => {
     const jwt = JSON.parse(atob(jwtToken.split(".")[1]));
     return (jwt && jwt?.exp && jwt.exp * 1000) || null;
 };
 
 
-const isExpired = (exp: number) => {
+export const isExpired = (exp: number) => {
     if (!exp) {
         return false;
     }
