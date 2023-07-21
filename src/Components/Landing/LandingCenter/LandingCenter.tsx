@@ -31,7 +31,7 @@ const LandingCenter: FC = () => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
 
-  const textFieldsFuncValidators: navbarFunctionsManager = {
+  const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
       setIsLoginPopupOpen(true)
     },
@@ -45,7 +45,7 @@ const LandingCenter: FC = () => {
       <S.LandingContainer>
         <S.NavbarContainer>
           {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} onClick={() => { textFieldsFuncValidators[element.funcName]() }}>{element.label}</S.NavbarElement>
+            <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>{element.label}</S.NavbarElement>
           ))}
         </S.NavbarContainer>
 

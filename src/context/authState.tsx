@@ -9,6 +9,8 @@ export const AuthStateProvider: FC<{ children: React.ReactNode; }> = ({ children
 
     const [authState, setAuthState] = useState<number>(AuthState.InProgress);
 
+    
+
     const value: IAuthStateContext = { authState, setAuthState }
 
     return (
