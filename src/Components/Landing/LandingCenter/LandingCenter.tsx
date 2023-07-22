@@ -25,7 +25,7 @@ const LandingCenter: FC = () => {
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(true)
 
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
