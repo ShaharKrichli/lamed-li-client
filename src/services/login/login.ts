@@ -57,6 +57,15 @@ export default {
         catch (err: any) {
             throw err
         }
+    },
+    refreshTokens: async (refreshToken: string): Promise<boolean> => {
+        try {
+            const { data } = await axiosInstanceNoToken.post<boolean>('/refresh-token')
+            return data
+        }
+        catch (err: any) {
+            throw err
+        }
     }
 
     // TODO: Need to add logout method
