@@ -1,5 +1,6 @@
 // components
 import Landing from "../Pages/Landing/Landing";
+import LandingLogin from "../Pages/Landing/LandingLogin";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import TeacherSearch from "../Pages/TeacherSearch/TeacherSearch";
@@ -10,7 +11,7 @@ import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, TEACHER_SEARCH_ROUTE, HOME_LOG
 const RouteMaster = [
   {
     path: HOME_ROUTE,
-    component: Landing,
+    component: LandingLogin,
     isPrivate: false,
     roles: []
   },
