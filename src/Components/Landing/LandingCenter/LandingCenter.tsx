@@ -19,13 +19,13 @@ import landingPageImg from '../../../assets/images/landing/landingCenter/landing
 import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
 import { navbarFunctionsManager } from "./ILandingCenter";
 
-const LandingCenter: FC = () => {
+const LandingCenter: FC<{ IsLoginPopupTrue: boolean }> = ({ IsLoginPopupTrue }) => {
   let history = useHistory();
 
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(true)
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(IsLoginPopupTrue)
 
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));

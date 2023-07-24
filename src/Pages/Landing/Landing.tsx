@@ -9,7 +9,7 @@ import LandingProffesionsNavigation from '../../Components/Landing/LandingProffe
 const Landing: FC = () => {
     return (
         <>
-            <LandingCenter />
+            <LandingCenter IsLoginPopupTrue={false} />
             <LandingProffesionsSlider />
             <LandingBullets />
             <LandingProffesionsNavigation />
@@ -17,4 +17,15 @@ const Landing: FC = () => {
     );
 };
 
-export default Landing;
+const LandingLogin: FC = () => {
+    return (
+        <>
+            <LandingCenter IsLoginPopupTrue={true} />
+            <LandingProffesionsSlider />
+            <LandingBullets />
+            <LandingProffesionsNavigation />
+        </>
+    );
+};
+
+export {Landing, LandingLogin};
