@@ -14,10 +14,10 @@ export const title = styled("div")({
 });
 
 export const AllBulletWrapper = styled("div")({
-  width: "40rem",
+  // width: "40rem", // deleted for now
 });
 
 export const CenterLeftImg = styled("img")({
-  width: "35rem",
+  // width: "35rem", // deleted for now
   borderRadius: "20px",
 });
