@@ -11,13 +11,13 @@ import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, TEACHER_SEARCH_ROUTE, HOME_LOG
 const RouteMaster = [
   {
     path: HOME_ROUTE,
-    component: LandingLogin,
+    component: Landing,
     isPrivate: false,
     roles: []
   },
   {
     path: HOME_LOGIN_ROUTE,
-    component: Landing,
+    component: LandingLogin,
     isPrivate: false,
     roles: []
   },
