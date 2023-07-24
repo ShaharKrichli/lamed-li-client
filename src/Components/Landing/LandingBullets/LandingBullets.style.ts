@@ -5,7 +5,7 @@ export const container = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: 'space-around',
-  paddingBlock: '3rem'
+  // paddingBlock: '3rem'
 });
 
 export const title = styled("div")({
