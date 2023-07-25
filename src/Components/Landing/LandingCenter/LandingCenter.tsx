@@ -85,7 +85,7 @@ const LandingCenter: FC = () => {
                 />
               )}
             />
-            <S.CenterPopularContainer>
+            <S.CenterPopularContainer>x
               <div >פופולרי</div> {/* will change */}
               <S.CenterPopularOption>מתמטיקה</S.CenterPopularOption>
               <S.CenterPopularOption>אנגלית</S.CenterPopularOption>
