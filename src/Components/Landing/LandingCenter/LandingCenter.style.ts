@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 export const LandingContainer = styled('div')({
     boxShadow: '0px 2px 4px -1px rgba(0, 0, 0, 0.2),0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
-    background: ' linear-gradient(to top, #09203f 0%, #537895 100%);',
+    background: 'linear-gradient(to top, #09203f 0%, #537895 100%);',
     padding: '1.5rem 3rem 0 2rem',
     // Responsive styles for smaller screens
     '@media (max-width: 600px)': {
@@ -17,8 +17,9 @@ export const NavbarContainer = styled('div')({
     fontSize: '1rem',
     // Responsive styles for smaller screens
     '@media (max-width: 600px)': {
-      flexDirection: 'column',
+      flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: 'center',
     }
 });
 
@@ -45,7 +46,7 @@ export const MainTitle = styled('div')({
     color: 'white',
     // Responsive styles for smaller screens
     '@media (max-width: 600px)': {
-      fontSize: '3rem',
+      fontSize: '2.5rem',
     }
 });
 
@@ -94,32 +95,47 @@ export const LandingBtn = styled('div')({
 });
 
 export const CenterPopularContainer = styled('div')({
-    display: 'flex',
-    marginTop: '1rem',
-    marginRight: '1rem',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    // Responsive styles for smaller screens
-    '@media (max-width: 600px)': {
-      flexDirection: 'column',
-    }
+  display: 'flex',
+  marginTop: '1rem',
+  marginRight: '1rem',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  // Responsive styles for smaller screens
+  '@media (max-width: 600px)': {
+    flexDirection: 'row',
+  },
+  '@media (max-width: 400px)': {
+    display: 'none',
+}
 });
 
 export const CenterPopularOption = styled('div')({
-    cursor: 'pointer',
-    backgroundColor: 'transparent',
-    border: '1px solid #fff',
-    borderRadius: '40px',
-    color: ' #fff',
-    fontWeight: '600',
-    lineHeight: '24px',
-    padding: ' 1px 12px 0',
-    transition: 'all .2s ease-in-out',
-    zIndex: '4',
-    ":hover": {
-        backgroundColor: 'white',
-        color: 'black'
+  cursor: 'pointer',
+  backgroundColor: 'transparent',
+  border: '1px solid #fff',
+  borderRadius: '40px',
+  color: ' #fff',
+  fontWeight: '600',
+  lineHeight: '24px',
+  padding: ' 1px 12px 0',
+  transition: 'all .2s ease-in-out',
+  zIndex: '4',
+  ":hover": {
+      backgroundColor: 'white',
+      color: 'black'
+  },
+  '@media (max-width: 600px)': {
+    margin: '0.5rem 0',
+    flexDirection: 'row',
+    width: '33%',
+    '&:nth-child(4)': {
+      display: 'none',
     }
+  },
+  '@media (max-width: 400px)': {
+      display: 'none',
+  }
 });
 
 export const AutocompleteInput = styled(TextField)(({ theme }) => ({
