@@ -5,7 +5,7 @@ import * as S from './LandingCenter.style'
 import './LandingCenter.css'
 
 //routing
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../../../consts/routes";
 
 // mui
@@ -19,13 +19,16 @@ import landingPageImg from '../../../assets/images/landing/landingCenter/landing
 import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
 import { navbarFunctionsManager } from "./ILandingCenter";
 
-const LandingCenter: FC<{ IsLoginPopupTrue: boolean }> = ({ IsLoginPopupTrue }) => {
+
+console.log(location.pathname)
+
+const LandingCenter: FC<{ isClientAtHomeLogin: boolean }> = ({ isClientAtHomeLogin }) => {
   let history = useHistory();
 
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(IsLoginPopupTrue)
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(isClientAtHomeLogin)
 
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));

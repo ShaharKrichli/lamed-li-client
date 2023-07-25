@@ -17,7 +17,7 @@ const RouteMaster = [
   },
   {
     path: HOME_LOGIN_ROUTE,
-    component: LandingLogin,
+    component: Landing,
     isPrivate: false,
     roles: []
   },
