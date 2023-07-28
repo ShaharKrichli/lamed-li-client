@@ -6,10 +6,15 @@ import LandingProffesionsSlider from '../../Components/Landing/LandingProffesion
 import LandingBullets from '../../Components/Landing/LandingBullets/LandingBullets';
 import LandingProffesionsNavigation from '../../Components/Landing/LandingProffesionsNavigation/LandingProffesionsNavigation'
 
+// routes
+import { HOME_LOGIN_ROUTE } from '../../consts/routes';
+
+const isClientAtHomeLogin = window.location.pathname === HOME_LOGIN_ROUTE;
+
 const Landing: FC = () => {
     return (
         <>
-            <LandingCenter />
+            <LandingCenter isClientAtHomeLogin={isClientAtHomeLogin} />
             <LandingProffesionsSlider />
             <LandingBullets />
             <LandingProffesionsNavigation />

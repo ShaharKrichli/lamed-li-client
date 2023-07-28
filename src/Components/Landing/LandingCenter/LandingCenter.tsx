@@ -17,15 +17,15 @@ import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 // assets
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
 import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
-import { navbarFunctionsManager } from "./ILandingCenter";
+import { ILandingCenter, navbarFunctionsManager } from "./ILandingCenter";
 
-const LandingCenter: FC = () => {
+const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   let history = useHistory();
 
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
-  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false)
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(isClientAtHomeLogin)
 
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));

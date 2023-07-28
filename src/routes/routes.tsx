@@ -5,7 +5,7 @@ import Register from "../Pages/Register/Register";
 import TeacherSearch from "../Pages/TeacherSearch/TeacherSearch";
 
 //routes 
-import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, TEACHER_SEARCH_ROUTE } from "../consts/routes";
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, TEACHER_SEARCH_ROUTE, HOME_LOGIN_ROUTE } from "../consts/routes";
 
 const RouteMaster = [
   {
@@ -13,6 +13,10 @@ const RouteMaster = [
     component: Landing,
     isPrivate: false,
     roles: []
+  },
+  {
+    path: HOME_LOGIN_ROUTE,
+    component: Landing,
   },
   {
     path: LOGIN_ROUTE,
