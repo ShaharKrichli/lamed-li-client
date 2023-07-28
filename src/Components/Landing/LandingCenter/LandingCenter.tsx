@@ -85,8 +85,8 @@ const LandingCenter: FC = () => {
                 />
               )}
             />
-            <S.CenterPopularContainer>x
-              <div >פופולרי</div> {/* will change */}
+            <S.CenterPopularContainer>
+              <S.PopularTitle >פופולרי</S.PopularTitle> {/* will change */}
               <S.CenterPopularOption>מתמטיקה</S.CenterPopularOption>
               <S.CenterPopularOption>אנגלית</S.CenterPopularOption>
               <S.CenterPopularOption>פסיכומטרי</S.CenterPopularOption>
@@ -100,8 +100,8 @@ const LandingCenter: FC = () => {
 
       <S.ButtonsContainer>
         <S.LandingBtn onClick={() => { setIsLoginPopupOpen(true) }}>כניסה לחשבון שלי</S.LandingBtn>
-      <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה פרטי</S.LandingBtn>
-    </S.ButtonsContainer >
+        <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה פרטי</S.LandingBtn>
+      </S.ButtonsContainer >
       <LandingLoginPopup isLoginPopupOpen={isLoginPopupOpen} setIsLoginPopupOpen={setIsLoginPopupOpen} />
     </>
   );
