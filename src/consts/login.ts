@@ -16,3 +16,8 @@ export const PASSWORD_FIELD = {
     isValid: false,
     type: 'password'
 }
+
+export const LOCAL_STORAGE_NAMES = {
+    AUTH: "AUTHENTICATION_TOKEN",
+    REFRESH_TOKEN: "REFRESH_TOKEN"
+};

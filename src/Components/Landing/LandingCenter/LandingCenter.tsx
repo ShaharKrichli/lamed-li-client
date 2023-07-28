@@ -31,7 +31,7 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
 
-  const textFieldsFuncValidators: navbarFunctionsManager = {
+  const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
       setIsLoginPopupOpen(true)
     },
@@ -45,7 +45,7 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
       <S.LandingContainer>
         <S.NavbarContainer>
           {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} onClick={() => { textFieldsFuncValidators[element.funcName]() }}>{element.label}</S.NavbarElement>
+            <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>{element.label}</S.NavbarElement>
           ))}
         </S.NavbarContainer>
 
@@ -99,9 +99,9 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
       </S.LandingContainer>
 
       <S.ButtonsContainer>
-        <S.LandingBtn onClick={() => { history.push(TEACHER_SEARCH_ROUTE) }}>מצא לי מורה</S.LandingBtn>
-        <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה</S.LandingBtn>
-      </S.ButtonsContainer>
+        <S.LandingBtn onClick={() => { setIsLoginPopupOpen(true) }}>כניסה לחשבון שלי</S.LandingBtn>
+      <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה פרטי</S.LandingBtn>
+    </S.ButtonsContainer >
       <LandingLoginPopup isLoginPopupOpen={isLoginPopupOpen} setIsLoginPopupOpen={setIsLoginPopupOpen} />
     </>
   );

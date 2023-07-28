@@ -15,9 +15,7 @@ const ResetPassword: FC<ILoginRightTogglers> = ({ setTempLoginComp }) => {
     const handleResetPassword = async (firstPassword: string, secondPassword: string) => {
         if (firstPassword !== secondPassword) return Promise.reject({ message: RESET_PASSWORD_INFO.ERROR_MSG })
         
-        return await loginService.resetPassword(firstPassword).then((data) => {
-            return data
-        })
+        return await loginService.resetPassword(firstPassword)
     }
 
     return (

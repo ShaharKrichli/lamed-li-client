@@ -39,13 +39,13 @@ export const textFieldsFuncValidators: fieldsValidatorsManager = {
         return /^[\w.%+-]+@[A-Za-z0-9.-]+\.(?:[A-Za-z]{2,}|il)$/.test(textToCheck)
     },
     oneUpperCaseLetter(textToCheck: string): boolean {
-        return /^[A-Z]+$/.test(textToCheck)
+        return /[A-Z]/.test(textToCheck)
     },
     oneDigit(textToCheck: string): boolean {
         return /\d+/.test(textToCheck)
     },
     oneLowerCaseLetter(textToCheck: string): boolean {
-        return /^[a-z]+$/.test(textToCheck)
+        return /[a-z]/.test(textToCheck)
     },
     specialChar(textToCheck: string): boolean {
         return /[!@#$%^&*(),.?":{}|<>]/.test(textToCheck)
