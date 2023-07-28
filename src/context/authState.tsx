@@ -7,8 +7,9 @@ export const useAuthState = (): IAuthStateContext => useContext(AuthStateContext
 
 export const AuthStateProvider: FC<{ children: React.ReactNode; }> = ({ children }) => {
 
-    const [authState, setAuthState] = useState<number>(AuthState.InProgress);
+    const [authState, setAuthState] = useState<number>(AuthState.InProgress); //initial state
 
+    // getTokenFromStorage()
     
 
     const value: IAuthStateContext = { authState, setAuthState }
