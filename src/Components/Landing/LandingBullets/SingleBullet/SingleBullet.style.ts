@@ -24,5 +24,6 @@ export const bulletTitle = styled("div")({
 export const bulletDesc = styled("div")({
   fontSize: "18px",
   color: 'gray',
-  width: '22rem'
+  width: 'auto', 
+  lineHeight:'36px',
 });
