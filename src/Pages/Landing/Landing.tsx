@@ -9,12 +9,10 @@ import LandingProffesionsNavigation from '../../Components/Landing/LandingProffe
 // routes
 import { HOME_LOGIN_ROUTE } from '../../consts/routes';
 
-const isClientAtHomeLogin = window.location.pathname === HOME_LOGIN_ROUTE;
-
 const Landing: FC = () => {
     return (
         <>
-            <LandingCenter isClientAtHomeLogin={isClientAtHomeLogin} />
+            <LandingCenter isClientAtHomeLogin={window.location.pathname === HOME_LOGIN_ROUTE} />
             <LandingProffesionsSlider />
             <LandingBullets />
             <LandingProffesionsNavigation />
