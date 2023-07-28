@@ -13,3 +13,7 @@ export interface INavbarHeadline {
     label: string;
     funcName: NAVBAR_FUNCTIONS_LITERALS
 }
+
+export interface ILandingCenter {
+    isClientAtHomeLogin: boolean
+}
