@@ -96,7 +96,6 @@ export const LandingBtn = styled('div')({
     width: '100%',
   }
 });
-
 export const CenterPopularContainer = styled('div')({
   display: 'flex',
   marginTop: '1rem',
@@ -138,6 +137,18 @@ export const CenterPopularOption = styled('div')({
     '&:nth-child(3)': {
       display: 'none',
     }
+  },
+    '@media (max-width: 450px)': {
+    '&:nth-child(3)': {
+      display: 'none',
+    }
+  },
+
+  '@media (max-width: 885px)': {
+    flexDirection: 'column', 
+    '&:nth-child(4)': {
+      display: 'none',
+    },
   },
   '@media (max-width: 400px)': {
     display: 'none',
