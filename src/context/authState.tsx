@@ -3,8 +3,7 @@ import { AuthState, IAuthStateContext } from './IAuthState';
 import { LOCAL_STORAGE_NAMES } from '../consts/login';
 import { getTokenFromStorage } from '../utils/auth/auth';
 
-import axios from "axios";
-import { ITokens } from '../types/interfaces/IToken';
+import loginService from '../services/login/login'
 
 const AuthStateContext = createContext<IAuthStateContext>({} as IAuthStateContext);
 
@@ -14,39 +13,33 @@ export const AuthStateProvider: FC<{ children: React.ReactNode; }> = ({ children
 
     const [authState, setAuthState] = useState<number>(AuthState.InProgress); //initial state
 
-    useEffect(() => {
-        (async () => {
-            try {
-                // Check if token exists and not revoked
-                let authToken = getTokenFromStorage(LOCAL_STORAGE_NAMES.AUTH);
-                // If exists and not revoked, set authState AuthState.Authenticated
-                if (!authToken) {
-                    // If doesn't exist or not valid, set authState AuthState.unAuthenticated
-                    // If exists else check for a refresh token
-                    const refreshToken = getTokenFromStorage(LOCAL_STORAGE_NAMES.REFRESH_TOKEN);
-                    if (refreshToken) {
-                        const { data } = await axios.post<ITokens>(
-                            `https://localhost:3000/login/refresh-token`,
-                            {},
-                            {
-                                headers: {
-                                    Authorization: `Bearer ${refreshToken}`
-                                }
-                            }
-                        );
-                        // If exists and not revoked, call the refresh token API and set new tokens
-                        localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, data.accessToken);
-                        localStorage.setItem(LOCAL_STORAGE_NAMES.REFRESH_TOKEN, data.refreshToken);
-                        setAuthState(AuthState.Authenticated)
-                        return
-                    }
+    const handleLogin = async () => {
+        let authToken = getTokenFromStorage(LOCAL_STORAGE_NAMES.AUTH);
+        if (!authToken) {
+            const refreshToken = getTokenFromStorage(LOCAL_STORAGE_NAMES.REFRESH_TOKEN);
+            if (refreshToken) {
+                try {
+                    const tokens = await loginService.refreshTokens(refreshToken);
+                    localStorage.setItem(LOCAL_STORAGE_NAMES.AUTH, tokens.accessToken);
+                    localStorage.setItem(LOCAL_STORAGE_NAMES.REFRESH_TOKEN, tokens.refreshToken);
+                    setAuthState(AuthState.Authenticated)
+                    return
                 }
-                setAuthState(AuthState.unAuthenticated);
-            } catch (error) {
-                console.error(error);
+                catch (err) {
+                    setAuthState(AuthState.unAuthenticated);
+                }
             }
-        })();
+            setAuthState(AuthState.unAuthenticated);
+            return
+        }
+        setAuthState(AuthState.Authenticated);
+
+    }
+    useEffect(() => {
+        handleLogin()
     }, []);
+
+
 
     const value: IAuthStateContext = { authState, setAuthState }
 
