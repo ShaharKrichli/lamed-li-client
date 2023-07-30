@@ -22,14 +22,14 @@ const LoginRight: FC<ILoginRight> = ({ setIsLoginPopupOpen }) => {
 
     const [tempLoginComp, setTempLoginComp] = useState<LOGIN_TOGGLER_COMPS_LITERALS>(LOGIN_TOGGLER_COMPS.login)
 
-    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.login] = <Login setTempLoginComp={setTempLoginComp} />
-    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <ForgetPassword setTempLoginComp={setTempLoginComp} />
-    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.restorationCode] = <RestorationCode setTempLoginComp={setTempLoginComp} />
-    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.resetPassword] = <ResetPassword setTempLoginComp={setTempLoginComp} />
-
     const handleClose = () => {
         setIsLoginPopupOpen(false);
     };
+
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.login] = <Login setTempLoginComp={setTempLoginComp} handleClosePopup={handleClose} />
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.forgotPassword] = <ForgetPassword setTempLoginComp={setTempLoginComp} handleClosePopup={handleClose}  />
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.restorationCode] = <RestorationCode setTempLoginComp={setTempLoginComp} handleClosePopup={handleClose}  />
+    loginTogglerCompsManager[LOGIN_TOGGLER_COMPS.resetPassword] = <ResetPassword setTempLoginComp={setTempLoginComp} handleClosePopup={handleClose}  />
 
     return (
         <Grid item xs={6}>

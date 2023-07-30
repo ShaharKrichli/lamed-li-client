@@ -21,3 +21,7 @@ export const LOCAL_STORAGE_NAMES = {
     AUTH: "AUTHENTICATION_TOKEN",
     REFRESH_TOKEN: "REFRESH_TOKEN"
 };
+
+export const GOOGLE_CLIENT_ID = {
+    CLIENT_ID: '923395499743-mjvqf85rtec9qorgvubthimrudup4a3a.apps.googleusercontent.com'
+}

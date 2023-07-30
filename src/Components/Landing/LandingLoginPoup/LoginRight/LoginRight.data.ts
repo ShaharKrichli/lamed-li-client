@@ -1,5 +1,6 @@
 export interface ILoginRightTogglers {
-    setTempLoginComp: React.Dispatch<React.SetStateAction<LOGIN_TOGGLER_COMPS_LITERALS>>
+    setTempLoginComp: React.Dispatch<React.SetStateAction<LOGIN_TOGGLER_COMPS_LITERALS>>,
+    handleClosePopup: () => void
 }
 
 export enum LOGIN_TOGGLER_COMPS {

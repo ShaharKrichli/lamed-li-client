@@ -9,22 +9,31 @@ import { encodeBase64 } from "../../utils/global";
 import { IAccessToken, ITokens } from "../../types/interfaces/IToken";
 
 const axiosInstanceNoToken: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
+    serviceBaseUrl: 'http://localhost:8000/api', // TODO: Need to be env variable
     prefix: "/login",
     isTokenRequired: false
 });
 
 const axiosInstance: AxiosInstance = createAxiosInstance({
-    serviceBaseUrl: 'https://localhost:8000/api', // TODO: Need to be env variable
+    serviceBaseUrl: 'http://localhost:8000/api', // TODO: Need to be env variable
     prefix: "/login",
     isTokenRequired: false
 });
 
 // TODO: Need to add logs
 export default {
-    login: async (password: string, email: string): Promise<ITokens> => {
+    login: async ( email: string, password: string): Promise<ITokens> => {
         try {
-            const { data } = await axiosInstanceNoToken.post<ITokens>('/login', { bodyData: encodeBase64({ password, email }) })
+            const { data } = await axiosInstanceNoToken.post<ITokens>('/', { bodyData: encodeBase64({ email, password }) })
+            return data
+        }
+        catch (err: any) {
+            throw err
+        }
+    },
+    googleLogin: async ( email: string, password: string, name: string): Promise<ITokens> => {
+        try {
+            const { data } = await axiosInstanceNoToken.post<ITokens>('/google', { bodyData: encodeBase64({ email, password, name }) })
             return data
         }
         catch (err: any) {
