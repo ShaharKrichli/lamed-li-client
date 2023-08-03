@@ -1,7 +1,7 @@
 
-export const getTokenFromStorage = (token: string) => {
+export const getTokenFromStorage = (tokenType: string) => {
     try {
-        const storageAuthToken = localStorage.getItem(token);
+        const storageAuthToken = localStorage.getItem(tokenType);
         return storageAuthToken && !isExpired(getExpirationDate(storageAuthToken)) ? JSON.parse(storageAuthToken) : undefined
 
     } catch (error: any) {
