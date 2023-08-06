@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-export const wrapper = styled("div")({
+export const container = styled("div")({
   paddingBottom: '1.5rem'
 });
 

@@ -14,7 +14,7 @@ export const title = styled("div")({
 });
 
 export const AllTeacherWrapper = styled("div")({
-  width: "80%"
+  width: "80%",
 });
 
 export const CenterLeftImg = styled("img")({
