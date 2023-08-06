@@ -18,9 +18,12 @@ import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
 import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
 import { ILandingCenter, navbarFunctionsManager } from "./ILandingCenter";
+import { useAuthState } from "../../../context/authState";
+import { AuthState } from "../../../context/IAuthState";
 
 const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   let history = useHistory();
+  const { authState } = useAuthState();
 
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
@@ -30,6 +33,9 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
+  const filteredNavbarHeadlines = authState === AuthState.unAuthenticated
+  ? NAVBAR_HEADLINES: NAVBAR_HEADLINES.filter(element => element.label !== 'התחבר' && element.label !== 'להרשמה');
+  console.log(authState)
 
   const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
@@ -39,13 +45,15 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
       history.push(REGISTER_ROUTE)
     }
   };
-
+  
   return (
     <>
       <S.LandingContainer>
-        <S.NavbarContainer>
-          {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>{element.label}</S.NavbarElement>
+      <S.NavbarContainer>
+          {filteredNavbarHeadlines.map((element, index) => (
+            <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>
+              {element.label}
+            </S.NavbarElement>
           ))}
         </S.NavbarContainer>
 
@@ -108,3 +116,6 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
 };
 
 export default LandingCenter;
+
+
+
