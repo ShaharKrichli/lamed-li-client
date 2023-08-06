@@ -15,8 +15,12 @@ import { TEACHER_CARDS } from "./TeacherCards.data";
 const TeacherCards: FC = () => {
   return (
     <S.container>
-      <S.AllTeacherWrapper>
-        <S.title>צוות המרצים שלנו</S.title>
+
+        {/* <S.title>צוות המרצים שלנו</S.title>
+        <S.CenterLeftImg src={backImageTeachers}></S.CenterLeftImg> */}
+        
+        <S.AllTeacherWrapper>
+      
         {TEACHER_CARDS.map((teacher, index) => (
           <SingleTeacherCard
             firstName={teacher.firstName}
@@ -36,7 +40,7 @@ const TeacherCards: FC = () => {
         ))}
       </S.AllTeacherWrapper>
 
-      <S.CenterLeftImg src={backImageTeachers}></S.CenterLeftImg>
+      
     </S.container>
   );
 };

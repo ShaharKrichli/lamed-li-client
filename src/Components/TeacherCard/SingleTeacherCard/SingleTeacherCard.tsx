@@ -14,7 +14,7 @@ const SingleTeacherCard: FC<ISingleTeacherCard> = ({ firstName, lastName,
       <S.profession>{profession}</S.profession>
       <S.shortDescription>{shortDescription}</S.shortDescription>
       <S.description>{description}</S.description>
-      <S.picture>{picture}</S.picture>
+      <S.picture> <img src={picture}/></S.picture>
       <S.age>{age}</S.age>
       <S.institution>{institution}</S.institution>
       <S.priceOnline>{priceOnline}</S.priceOnline>

@@ -4,17 +4,17 @@ export const container = styled("div")({
   backgroundColor: "#f1fdf7",
   display: "flex",
   alignItems: "center",
-  justifyContent: 'space-around',
-  paddingBlock: '3rem'
+  justifyContent: '',
+  padding: '3rem'
 });
 
 export const title = styled("div")({
-  fontSize: "2rem",
+  fontSize: "3rem",
   paddingBottom: '1.5rem',
 });
 
 export const AllTeacherWrapper = styled("div")({
-  width: "40rem",
+  width: "80%"
 });
 
 export const CenterLeftImg = styled("img")({

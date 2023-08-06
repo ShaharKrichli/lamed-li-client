@@ -6,70 +6,83 @@ export const wrapper = styled("div")({
 
 export const titleContainer = styled("div")({
   display: "flex",
-  alignItems: "center",
+  alignItems: "centerr",
   paddingBottom: '1rem'
 });
 
 export const firstName = styled("div")({
+  fontFamily: 'Verdana, Geneva, sans-serif',
+  fontSize: "2rem",
+  paddingBottom: '1.5rem',
+  paddingLeft:'0.6rem'
+});
+
+export const lastName = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
   fontSize: "2rem",
   paddingBottom: '1.5rem',
 });
 
-export const lastName = styled("div")({
-  width: "40rem",
+export const profession = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const profession = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const shortDescription = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.6rem",
+  paddingBottom: '1.5rem',
 });
 
-export const shortDescription = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const description = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const description = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const picture = styled("div")({
+  width: "100%",
 });
 
-export const picture = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const age = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const age = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const institution = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const institution = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const priceOnline = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const priceOnline = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const priceFrontal = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const priceFrontal = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const priceFrontalStudent = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const priceFrontalStudent = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const currencyName = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
 
-export const currencyName = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
-});
-
-export const currencySymbol = styled("img")({
-  width: "35rem",
-  borderRadius: "20px",
+export const currencySymbol = styled("div")({
+  fontFamily:'Verdana, Geneva, sans-serif',
+  fontSize: "1.4rem",
+  paddingBottom: '1.5rem',
 });
