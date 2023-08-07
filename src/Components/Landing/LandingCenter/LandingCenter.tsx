@@ -24,7 +24,6 @@ import { AuthState } from "../../../context/IAuthState";
 const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   let history = useHistory();
   const { authState } = useAuthState();
-
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
@@ -33,10 +32,14 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
-  const filteredNavbarHeadlines = authState === AuthState.unAuthenticated
-  ? NAVBAR_HEADLINES: NAVBAR_HEADLINES.filter(element => element.label !== 'התחבר' && element.label !== 'להרשמה');
-  console.log(authState)
-
+  const filteredNavbarHeadlines = (authState === AuthState.unAuthenticated || authState === AuthState.InProgress)
+  ? NAVBAR_HEADLINES.map((element) => {
+    if (element.label === 'התחבר' || element.label === 'להרשמה') {
+        return { ...element, isVisible: false };
+      }
+      return element;
+    })
+  : NAVBAR_HEADLINES;
   const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
       setIsLoginPopupOpen(true)
