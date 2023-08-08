@@ -21,9 +21,9 @@ import { ILandingCenter, navbarFunctionsManager } from "./ILandingCenter";
 import { useAuthState } from "../../../context/authState";
 import { AuthState } from "../../../context/IAuthState";
 
-const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
+const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin, authState }) => {
   let history = useHistory();
-  const { authState } = useAuthState();
+  // const { authState } = useAuthState();
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
@@ -33,13 +33,13 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
   const filteredNavbarHeadlines = (authState === AuthState.unAuthenticated || authState === AuthState.InProgress)
-  ? NAVBAR_HEADLINES.map((element) => {
-    if (element.label === 'התחבר' || element.label === 'להרשמה') {
-        return { ...element, isVisible: false };
+    ? NAVBAR_HEADLINES.map((element) => {
+      if (element.label === 'התחבר' || element.label === 'להרשמה') {
+        return { ...element, isVisible: true };
       }
       return element;
     })
-  : NAVBAR_HEADLINES;
+    : NAVBAR_HEADLINES;
   const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
       setIsLoginPopupOpen(true)
@@ -48,15 +48,20 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
       history.push(REGISTER_ROUTE)
     }
   };
-  
+
+
   return (
     <>
       <S.LandingContainer>
-      <S.NavbarContainer>
+        <S.NavbarContainer>
           {filteredNavbarHeadlines.map((element, index) => (
+            (filteredNavbarHeadlines[index].isVisible)
+            ?
             <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>
               {element.label}
             </S.NavbarElement>
+            :
+            null
           ))}
         </S.NavbarContainer>
 
@@ -111,8 +116,8 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
 
       <S.ButtonsContainer>
         <S.LandingBtn onClick={() => { setIsLoginPopupOpen(true) }}>כניסה לחשבון שלי</S.LandingBtn>
-      <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה פרטי</S.LandingBtn>
-    </S.ButtonsContainer >
+        <S.LandingBtn onClick={() => { history.push(REGISTER_ROUTE) }}>צור פרופיל מורה פרטי</S.LandingBtn>
+      </S.ButtonsContainer >
       <LandingLoginPopup isLoginPopupOpen={isLoginPopupOpen} setIsLoginPopupOpen={setIsLoginPopupOpen} />
     </>
   );

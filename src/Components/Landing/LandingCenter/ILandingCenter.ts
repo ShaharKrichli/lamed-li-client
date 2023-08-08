@@ -17,4 +17,5 @@ export interface INavbarHeadline {
 
 export interface ILandingCenter {
     isClientAtHomeLogin: boolean
+    authState: number
 }

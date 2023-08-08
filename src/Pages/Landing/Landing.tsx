@@ -17,7 +17,7 @@ import { Token } from '@mui/icons-material';
 const Landing: FC = () => {
     const [authState, setAuthState] = useState<number>(AuthState.InProgress); //initial state
 
-    const handelInitUpload = async () => {
+    const handleInitUpload = async () => {
         let authToken = getTokenFromStorage(LOCAL_STORAGE_NAMES.AUTH);
         if (!authToken) {
             const refreshToken = getTokenFromStorage(LOCAL_STORAGE_NAMES.REFRESH_TOKEN);
@@ -40,11 +40,12 @@ const Landing: FC = () => {
 
     }
     useEffect(() => {
-        handelInitUpload()
+        handleInitUpload()
     }, []);
+   
     return (
         <>
-            <LandingCenter isClientAtHomeLogin={window.location.pathname === HOME_LOGIN_ROUTE} />
+            <LandingCenter isClientAtHomeLogin={window.location.pathname === HOME_LOGIN_ROUTE} authState={authState} />
             <LandingProffesionsSlider />
             <LandingBullets />
             <LandingProffesionsNavigation />
