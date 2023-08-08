@@ -27,7 +27,7 @@ const LandingBullets: FC = () => {
         ))}
       </S.AllBulletWrapper>
 
-      <S.CenterLeftImg src={landingQualitiesImg}></S.CenterLeftImg>
+      {/* <S.CenterLeftImg src={landingQualitiesImg}></S.CenterLeftImg> */}
     </S.container>
   );
 };
