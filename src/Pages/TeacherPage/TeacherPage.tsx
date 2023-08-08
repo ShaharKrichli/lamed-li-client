@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 
+//components
+import TeacherProfile from '../../Components/TeacherPage/TeacherProfile/TeacherProfile';
+
 const TeacherPage: FC = () => {
     return (
-        <div>
-            amit amit amit amit amit amit amit amit amit
-        </div>
+        <TeacherProfile></TeacherProfile>
     );
 };
 

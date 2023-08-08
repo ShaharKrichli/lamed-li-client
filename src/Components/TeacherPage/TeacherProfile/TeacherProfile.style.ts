@@ -26,12 +26,22 @@ export const container = styled("div")({
   },
 });
 
-export const title = styled("div")({
+export const teacherName = styled("div")({
   fontSize: "2rem",
   paddingBottom: '1.5rem',
 });
 
-export const AllBulletWrapper = styled("div")({
+export const shortDescription = styled("div")({
+  fontSize: "2rem",
+  paddingBottom: '1.5rem',
+});
+
+export const detail = styled("div")({
+  fontSize: "2rem",
+  paddingBottom: '1.5rem',
+});
+
+export const personalDeteils = styled("div")({
   width: "40rem",
   display: "flex",
   flexDirection:"column",
@@ -47,7 +57,7 @@ export const AllBulletWrapper = styled("div")({
   },
 });
 
-export const CenterLeftImg = styled("img")({
+export const profileImage = styled("img")({
   // width: "35rem", // deleted for now
   borderRadius: "20px",
 

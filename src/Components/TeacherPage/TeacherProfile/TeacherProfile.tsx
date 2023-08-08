@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 // components
-import SingleBullet from "./SingleBullet/SingleBullet";
+
 
 // css
 import * as S from "./TeacherProfile.style"
@@ -10,26 +10,28 @@ import * as S from "./TeacherProfile.style"
 import landingQualitiesImg from "../../../assets/images/landing/landingBullets/bulletStudyGirl.png";
 
 // consts
-import { LANDING_BULLET_POINTS } from "./LandingBullets.data";
+import { teachers } from "./TeacherProfile.data";
 
-const LandingBullets: FC = () => {
-  return (
-    <S.container>
-      <S.AllBulletWrapper>
-        <S.title>החלק הכי טוב? הכל.</S.title>
-        {LANDING_BULLET_POINTS.map((bullet, index) => (
-          <SingleBullet
-            desc={bullet.desc}
-            header={bullet.header}
-            icon={bullet.icon}
-            key={index}
-          />
-        ))}
-      </S.AllBulletWrapper>
+const teacher = teachers[0]
 
-      <S.CenterLeftImg src={landingQualitiesImg}></S.CenterLeftImg>
-    </S.container>
-  );
+const birthDate = new Date(teacher.dateOfBirth);
+const currentDate = new Date();
+
+const age = currentDate.getFullYear() - birthDate.getFullYear() - (currentDate < new Date(currentDate.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0);
+
+const TeacherProfile: FC = () => {
+    return (
+        <S.container>
+            <S.personalDeteils>
+                <S.teacherName>{teacher.firstName} {teacher.lastName}</S.teacherName>
+                <S.shortDescription>{teacher.shortDescription}</S.shortDescription>
+                <S.detail>{teacher.gender === "נקבה" ? "בת":"בן"} {age}</S.detail>
+                <S.detail>{teacher.city}</S.detail>
+                <S.detail>{teacher.institution}</S.detail>
+            </S.personalDeteils>
+            {/* <S.profileImage>src={landingQualitiesImg}</S.profileImage> */}
+        </S.container>
+    );
 };
 
-export default LandingBullets;
+export default TeacherProfile;
