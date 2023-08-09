@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 //css
 import * as S from './LandingCenter.style'
@@ -18,10 +18,12 @@ import { NAVBAR_HEADLINES } from "./LandingCenter.data";
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
 import LandingLoginPopup from "../LandingLoginPoup/LandingLoginPoup";
 import { ILandingCenter, navbarFunctionsManager } from "./ILandingCenter";
+import { useAuthState } from "../../../context/authState";
+import { AuthState } from "../../../context/IAuthState";
 
 const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   let history = useHistory();
-
+  const { authState } = useAuthState();
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
@@ -30,6 +32,16 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
+  
+
+  // const checkAuthState = () => {
+  //   console.log("authState", authState);
+  //   if (authState === 0){
+
+  //     return
+  //   }
+  // }
+
 
   const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
@@ -40,12 +52,24 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
     }
   };
 
+  // useEffect(() => {
+  //   checkAuthState()
+  // }, []);
+
+  console.log("NAVBAR_HEADLINES[0].isAffectedByAuthentication", NAVBAR_HEADLINES[0].isAffectedByAuthentication);
+  console.log("NAVBAR_HEADLINES[1].isAffectedByAuthentication", NAVBAR_HEADLINES[1].isAffectedByAuthentication);
+  console.log("NAVBAR_HEADLINES[2].isAffectedByAuthentication", NAVBAR_HEADLINES[2].isAffectedByAuthentication);
+
   return (
     <>
       <S.LandingContainer>
         <S.NavbarContainer>
           {NAVBAR_HEADLINES.map((element, index) => (
-            <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>{element.label}</S.NavbarElement>
+            (!NAVBAR_HEADLINES[index].isAffectedByAuthentication)
+            &&
+            <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>
+              {element.label}
+            </S.NavbarElement>
           ))}
         </S.NavbarContainer>
 
@@ -108,3 +132,6 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
 };
 
 export default LandingCenter;
+
+
+
