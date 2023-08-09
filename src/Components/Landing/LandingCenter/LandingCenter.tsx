@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 //css
 import * as S from './LandingCenter.style'
@@ -21,9 +21,9 @@ import { ILandingCenter, navbarFunctionsManager } from "./ILandingCenter";
 import { useAuthState } from "../../../context/authState";
 import { AuthState } from "../../../context/IAuthState";
 
-const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin, authState }) => {
+const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   let history = useHistory();
-  // const { authState } = useAuthState();
+  const { authState } = useAuthState();
   const [fieldOfLearning, setFieldOfLearning] = useState<string | null>(null);
   const [isFolDropdownOpen, setIsFolDropdownOpen] = useState<boolean>(false);
 
@@ -32,14 +32,17 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin, authState }) =
   const filterAutoCompleteOption = (options: string[], { inputValue }: { inputValue: string }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
-  const filteredNavbarHeadlines = (authState === AuthState.unAuthenticated || authState === AuthState.InProgress)
-    ? NAVBAR_HEADLINES.map((element) => {
-      if (element.label === 'התחבר' || element.label === 'להרשמה') {
-        return { ...element, isVisible: true };
-      }
-      return element;
-    })
-    : NAVBAR_HEADLINES;
+  
+
+  // const checkAuthState = () => {
+  //   console.log("authState", authState);
+  //   if (authState === 0){
+
+  //     return
+  //   }
+  // }
+
+
   const navbarFunctionsManagerExec: navbarFunctionsManager = {
     openLoginPopup: () => {
       setIsLoginPopupOpen(true)
@@ -49,19 +52,24 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin, authState }) =
     }
   };
 
+  // useEffect(() => {
+  //   checkAuthState()
+  // }, []);
+
+  console.log("NAVBAR_HEADLINES[0].isAffectedByAuthentication", NAVBAR_HEADLINES[0].isAffectedByAuthentication);
+  console.log("NAVBAR_HEADLINES[1].isAffectedByAuthentication", NAVBAR_HEADLINES[1].isAffectedByAuthentication);
+  console.log("NAVBAR_HEADLINES[2].isAffectedByAuthentication", NAVBAR_HEADLINES[2].isAffectedByAuthentication);
 
   return (
     <>
       <S.LandingContainer>
         <S.NavbarContainer>
-          {filteredNavbarHeadlines.map((element, index) => (
-            (filteredNavbarHeadlines[index].isVisible)
-            ?
+          {NAVBAR_HEADLINES.map((element, index) => (
+            (!NAVBAR_HEADLINES[index].isAffectedByAuthentication)
+            &&
             <S.NavbarElement key={index} onClick={() => { navbarFunctionsManagerExec[element.funcName]() }}>
               {element.label}
             </S.NavbarElement>
-            :
-            null
           ))}
         </S.NavbarContainer>
 

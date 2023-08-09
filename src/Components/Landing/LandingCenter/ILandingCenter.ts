@@ -12,10 +12,9 @@ export type navbarFunctionsManager = { [literal in NAVBAR_FUNCTIONS_LITERALS]:
 export interface INavbarHeadline {
     label: string;
     funcName: NAVBAR_FUNCTIONS_LITERALS
-    isVisible: boolean
+    isAffectedByAuthentication: boolean
 }
 
 export interface ILandingCenter {
     isClientAtHomeLogin: boolean
-    authState: number
-}
+    }

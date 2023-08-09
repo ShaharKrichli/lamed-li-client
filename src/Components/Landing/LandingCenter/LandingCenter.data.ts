@@ -4,18 +4,18 @@ export const NAVBAR_HEADLINES: INavbarHeadline[] = [
     {
         label: 'למד לי',
         funcName: 'openLoginPopup',
-        isVisible: true
+        isAffectedByAuthentication: false
     },
     {
         label: 'התחבר',
         funcName: 'openLoginPopup',
-        isVisible: true,
+        isAffectedByAuthentication: true,
     },
 
     {
         label: 'להרשמה',
         funcName: 'toRegister',
-        isVisible: true
+        isAffectedByAuthentication: true
     },
 
 ]
