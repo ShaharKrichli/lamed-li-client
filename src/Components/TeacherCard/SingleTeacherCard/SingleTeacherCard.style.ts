@@ -1,7 +1,35 @@
+import { Margin } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
+import { RightCloseIcon } from "../../Landing/LandingLoginPoup/LoginRight/LoginRight.style";
 
-export const container = styled("div")({
-  paddingBottom: '1.5rem'
+export const ContainerMain = styled("div")({
+  backgroundColor: "#f1fdf7",
+  display: "flex",
+  // alignItems: "center",
+  justifyContent: 'flex-start',
+  padding: 'rem',
+  margin:'',
+  width: ''
+});
+
+export const ContainerRight = styled("div")({
+  backgroundColor: "#f1fdf7",
+  display: "flex",
+  // alignItems: "center",
+  justifyContent: 'center',
+  padding: 'rem',
+  margin:'10px',
+  width: '30%'
+});
+
+export const ContainerLeft = styled("div")({
+  backgroundColor: "#f1fdf7",
+  display: "flex",
+  // alignItems: "center",
+  justifyContent: 'flex-end',
+  padding: '2rem',
+  margin:'10px',
+  width: '70%'
 });
 
 export const titleContainer = styled("div")({
@@ -42,7 +70,7 @@ export const description = styled("div")({
 });
 
 export const picture = styled("div")({
-  width: "100%",
+  maxwidth: "100%",
 });
 
 export const age = styled("div")({

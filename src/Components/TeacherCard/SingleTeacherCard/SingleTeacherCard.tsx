@@ -17,27 +17,31 @@ const SingleTeacherCard: FC<ISingleTeacherCard> = ({
   currency,
 }) => {
   return (
-    <S.container>
-       <S.picture>
-        {" "}
-        <img src={picture} />
-      </S.picture>
-      <S.titleContainer>
-        <S.firstName>{firstName}</S.firstName>
-        <S.lastName>{lastName}</S.lastName>
-      </S.titleContainer>
-      <S.profession>{profession}</S.profession>
-      <S.shortDescription>{shortDescription}</S.shortDescription>
-      <S.description>{description}</S.description>
-     
-      <S.age>{age}</S.age>
-      <S.institution>{institution}</S.institution>
-      <S.priceOnline>{priceOnline}</S.priceOnline>
-      <S.priceFrontal>{priceFrontal}</S.priceFrontal>
-      <S.priceFrontalStudent>{priceFrontalStudent}</S.priceFrontalStudent>
-      <S.currencyName>{currency?.name}</S.currencyName>
-      <S.currencyName>{currency?.symbol}</S.currencyName>
-    </S.container>
+    <S.ContainerMain>
+      <S.ContainerRight>
+        <S.picture>
+          {" "}
+          <img src={picture} />
+        </S.picture>
+      </S.ContainerRight>
+      <S.ContainerLeft>
+        <S.titleContainer>
+          <S.firstName>{firstName}</S.firstName>
+          <S.lastName>{lastName}</S.lastName>
+        </S.titleContainer>
+        <S.profession>{profession}</S.profession>
+        <S.shortDescription>{shortDescription}</S.shortDescription>
+        <S.description>{description}</S.description>
+
+        <S.age>{age}</S.age>
+        <S.institution>{institution}</S.institution>
+        <S.priceOnline>{priceOnline}</S.priceOnline>
+        <S.priceFrontal>{priceFrontal}</S.priceFrontal>
+        <S.priceFrontalStudent>{priceFrontalStudent}</S.priceFrontalStudent>
+        <S.currencyName>{currency?.name}</S.currencyName>
+        <S.currencyName>{currency?.symbol}</S.currencyName>
+      </S.ContainerLeft>
+    </S.ContainerMain>
   );
 };
 

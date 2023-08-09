@@ -8,6 +8,8 @@ export const container = styled("div")({
   padding: '3rem'
 });
 
+// flex-start, cener, flex-end
+
 export const title = styled("div")({
   fontSize: "3rem",
   paddingBottom: '1.5rem',
