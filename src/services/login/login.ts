@@ -58,9 +58,13 @@ export default {
             throw err
         }
     },
-    refreshTokens: async (refreshToken: string): Promise<boolean> => {
+    refreshTokens: async (refreshToken: string): Promise<ITokens> => {
         try {
-            const { data } = await axiosInstanceNoToken.post<boolean>('/refresh-token')
+            const { data } = await axiosInstanceNoToken.post<ITokens>('/refresh-token', {}, {
+                headers: {
+                    Authorization: `Bearer ${refreshToken}`
+                }
+            })
             return data
         }
         catch (err: any) {
