@@ -13,6 +13,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 // consts 
 import { NAVBAR_HEADLINES } from "./LandingCenter.data";
+import { NAVBAR_HEADLINE_LABEL } from "../../../consts/navbar";
 
 // assets
 import landingPageImg from '../../../assets/images/landing/landingCenter/landingCenter.png'
@@ -33,11 +34,23 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
     return options.filter(option => option.toLowerCase().includes(inputValue.toLowerCase()));
   };
   
+  const filteredNavbarHeadlines = (authState === AuthState.unAuthenticated || authState === AuthState.InProgress)
+  ? NAVBAR_HEADLINES.map((element) => {
+    
+    
+    if (element.label === NAVBAR_HEADLINE_LABEL.LOGIN || element.label === NAVBAR_HEADLINE_LABEL.REGISTER) {
+      return { ...element,  isAffectedByAuthentication: false };
+    }
+    return element;
+  })
+  : NAVBAR_HEADLINES;
+
+
 
   // const checkAuthState = () => {
   //   console.log("authState", authState);
   //   if (authState === 0){
-
+        
   //     return
   //   }
   // }
@@ -59,6 +72,7 @@ const LandingCenter: FC<ILandingCenter> = ({ isClientAtHomeLogin }) => {
   console.log("NAVBAR_HEADLINES[0].isAffectedByAuthentication", NAVBAR_HEADLINES[0].isAffectedByAuthentication);
   console.log("NAVBAR_HEADLINES[1].isAffectedByAuthentication", NAVBAR_HEADLINES[1].isAffectedByAuthentication);
   console.log("NAVBAR_HEADLINES[2].isAffectedByAuthentication", NAVBAR_HEADLINES[2].isAffectedByAuthentication);
+  console.log("authState", authState);
 
   return (
     <>

@@ -1,21 +1,23 @@
+import { NAVBAR_HEADLINE_LABEL } from "../../../consts/navbar";
 import { INavbarHeadline } from "./ILandingCenter";
+
 
 export const NAVBAR_HEADLINES: INavbarHeadline[] = [
     {
-        label: 'למד לי',
+        label: NAVBAR_HEADLINE_LABEL.LAMEDLI,
         funcName: 'openLoginPopup',
-        isAffectedByAuthentication: false
+        isAffectedByAuthentication: false,
     },
     {
-        label: 'התחבר',
+        label: NAVBAR_HEADLINE_LABEL.LOGIN,
         funcName: 'openLoginPopup',
         isAffectedByAuthentication: true,
     },
 
     {
-        label: 'להרשמה',
+        label: NAVBAR_HEADLINE_LABEL.REGISTER,
         funcName: 'toRegister',
-        isAffectedByAuthentication: true
+        isAffectedByAuthentication: true,
     },
 
 ]
