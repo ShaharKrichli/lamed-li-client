@@ -8,12 +8,14 @@ const teacher = teachers[0]
 
 export const TeacherAbout: FC = () => {
     return (
-        <S.container>
-            <S.personalDeteils>
+        <S.Container>
+            
+            <S.PersonalDetails>
+            <S.Title>קצת עלי</S.Title>
                 <S.Description>{teacher.description}</S.Description>
-            </S.personalDeteils>
+            </S.PersonalDetails>
             {/* <S.profileImage>src={landingQualitiesImg}</S.profileImage> */}
-        </S.container>
+        </S.Container>
     );
 };
 
