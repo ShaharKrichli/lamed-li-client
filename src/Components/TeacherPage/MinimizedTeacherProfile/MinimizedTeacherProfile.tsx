@@ -4,14 +4,14 @@ import { FC } from "react";
 import { useScrollPosition } from "../../../hooks/useScrollPosition";
 
 // css
-import * as S from "./TeacherProfile.style"
+import * as S from "./MinimizedTeacherProfile.style"
 
 
 // images
 import landingQualitiesImg from "../../../assets/images/landing/landingBullets/bulletStudyGirl.png";
 
 // consts
-import { teachers, female, male } from "./TeacherProfile.data";
+import { teachers, female, male } from "./MinimizedTeacherProfile.data";
 import { lightGreen } from "@mui/material/colors";
 
 
@@ -28,14 +28,7 @@ const TeacherProfile: FC = () => {
         <>
         <S.container>
             <S.profileImage src={landingQualitiesImg}></S.profileImage>
-            <S.personalDetails>
-                <S.teacherName>{teacher.firstName} {teacher.lastName}</S.teacherName>
-                <S.shortDescription>{teacher.shortDescription}</S.shortDescription>
-                <S.detail>{teacher.gender === female ? "בת":"בן"} {age}</S.detail>
-                <S.detail>{teacher.city}</S.detail>
-                <S.detail>{teacher.institution}</S.detail>
-            </S.personalDetails>
-            
+            <S.teacherName>{teacher.firstName} {teacher.lastName}</S.teacherName>
         </S.container>
         </>
     );
