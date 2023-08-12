@@ -11,7 +11,7 @@ export const TeacherAbout: FC = () => {
         <S.Container>
             
             <S.PersonalDetails>
-            <S.Title>קצת עלי</S.Title>
+            <S.Title>קצת עליי</S.Title>
                 <S.Description>{teacher.description}</S.Description>
             </S.PersonalDetails>
             {/* <S.profileImage>src={landingQualitiesImg}</S.profileImage> */}

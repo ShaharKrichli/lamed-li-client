@@ -18,10 +18,13 @@ export interface ITeacher {
     priceFrontalStudentHouse?: number;
 }
 
+export const female = "נקבה"
+export const male = "זכר"
+
 export const teachers: ITeacher[] = [
     {
     email: "a@gmail.com",
-    gender: "נקבה",
+    gender: female,
     dateOfBirth: new Date('1989-01-01'),
     firstName: "פארוק",
     lastName: "שנות-אור",
