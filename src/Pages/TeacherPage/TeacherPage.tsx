@@ -7,6 +7,8 @@ import TeacherAbout from '../../Components/TeacherPage/TeacherAbout/TeacherAbout
 
 //hooks
 import { useScrollPosition } from '../../hooks/useScrollPosition';
+import TeacherCity from '../../Components/TeacherPage/TeacherCity/TeacherCity';
+import TeacherProfession from '../../Components/TeacherPage/TeacherProfession/TeacherProfession';
 
 const scrollingThreshold = 1
 
@@ -19,23 +21,8 @@ const TeacherPage: FC = () => {
             <MinimizedTeacherProfile />
         }
         <TeacherAbout />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nulla itaque architecto dolorem minus natus vitae dignissimos hic fugiat recusandae repellendus, amet necessitatibus assumenda, molestias quod cupiditate deleniti voluptates vero!</p>
+        <TeacherProfession />
+        <TeacherCity />
         </>
     );
 };

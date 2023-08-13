@@ -6,6 +6,7 @@ export interface ITeacher {
     lastName: string;
     phone: string;
     address: string;
+    profession:string[];
     city: string;
     shortDescription: string;
     description: string;
@@ -29,6 +30,7 @@ export const teachers: ITeacher[] = [
     firstName: "פארוק",
     lastName: "שנות-אור",
     phone: "052123456798",
+    profession: ["היסטוריה", "לשון","מתמטיקה","מדעי המחשב","תנך","אנגלית"],
     address: "קהילת וינה",
     city: "תל אביב",
     shortDescription: "אל האינסוף ומעבר לו",
