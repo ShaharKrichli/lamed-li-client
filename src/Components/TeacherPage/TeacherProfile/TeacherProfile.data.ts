@@ -14,8 +14,8 @@ export interface ITeacher {
     isOnline: boolean;
     isFrontal: boolean;
     isFrontalStudnetHouse: boolean;
-    priceOnline: number;
-    priceFrontal: number;
+    priceOnline?: number;
+    priceFrontal?: number;
     priceFrontalStudentHouse?: number;
 }
 
