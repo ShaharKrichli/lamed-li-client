@@ -26,17 +26,17 @@ const age = currentDate.getFullYear() - birthDate.getFullYear() - (currentDate <
 const TeacherProfile: FC = () => {
     return (
         <>
-        <S.container>
-            <S.profileImage src={landingQualitiesImg}></S.profileImage>
-            <S.personalDetails>
-                <S.teacherName>{teacher.firstName} {teacher.lastName}</S.teacherName>
-                <S.shortDescription>{teacher.shortDescription}</S.shortDescription>
-                <S.detail>{teacher.gender === female ? "בת":"בן"} {age}</S.detail>
-                <S.detail>{teacher.city}</S.detail>
-                <S.detail>{teacher.institution}</S.detail>
-            </S.personalDetails>
+        <S.Container>
+            <S.ProfileImage src={landingQualitiesImg}></S.ProfileImage>
+            <S.PersonalDetails>
+                <S.TeacherName>{teacher.firstName} {teacher.lastName}</S.TeacherName>
+                <S.ShortDescription>{teacher.shortDescription}</S.ShortDescription>
+                <S.Detail>{teacher.gender === female ? "בת":"בן"} {age}</S.Detail>
+                <S.Detail>{teacher.city}</S.Detail>
+                <S.Detail>{teacher.institution}</S.Detail>
+            </S.PersonalDetails>
             
-        </S.container>
+        </S.Container>
         </>
     );
 };
