@@ -10,21 +10,18 @@ export const useScrollPosition = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         setScrollPosition(window.scrollY);
-      }, 18); // Adjust the debounce time (in milliseconds) to your preference
+      }, 18); 
     };
 
-    // Attach the scroll event listener
     window.addEventListener('scroll', updatePosition);
 
-    // Call the update function initially to get the initial scroll position
     updatePosition();
 
-    // Detach the scroll event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', updatePosition);
-      clearTimeout(timeoutId); // Clear any pending updates when unmounting
+      clearTimeout(timeoutId); 
     };
-  }, []); // Empty dependency array ensures that the effect runs only once during mount
+  }, []); 
 
   return scrollPosition;
 };

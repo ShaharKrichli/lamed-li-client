@@ -51,12 +51,10 @@ export const PersonalDetails = styled("div")({
   fontWeight: '300',
   margin: '2rem',
 
-  // Media query for half screen screens
   [`@media (max-width: ${halfScreenBreakpoint})`]: {
     width: "30rem",
   },
 
-  // Media query for mobile
   [`@media (max-width: ${mobileBreakpoint})`]: {
     width: "25rem",
   },
